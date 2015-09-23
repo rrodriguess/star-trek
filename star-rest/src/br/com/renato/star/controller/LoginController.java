@@ -11,7 +11,13 @@ import br.com.caelum.vraptor.Validator;
 import br.com.renato.star.dao.UsuarioDao;
 import br.com.renato.star.interceptor.Public;
 import br.com.renato.star.model.Usuario;
-
+/**
+ * Classe <code>LoginController</code>, responsável
+ * pela lógica de login.
+ * @author rrodr
+ * @version 2.0
+ * 
+ */
 @Resource
 public class LoginController {
 	
@@ -25,10 +31,19 @@ public class LoginController {
 		this.usuarioLogado = usuarioLogado;
 	}
 	
+	/**
+	 * Método formulario, responsável por direcionar 
+	 * ações para a View.
+	 */
 	@Public
 	@Get("/login")
 	public void formulario() {}
 	
+	/**
+	 * Método autentica, responsável pela autenticação
+	 * do usuário.
+	 * @param usuario
+	 */
 	@Public
 	@Post
 	public void autentica(Usuario usuario) {
