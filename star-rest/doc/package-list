@@ -1,0 +1,5 @@
+br.com.renato.star.controller
+br.com.renato.star.dao
+br.com.renato.star.interceptor
+br.com.renato.star.model
+br.com.renato.star.repositorio
