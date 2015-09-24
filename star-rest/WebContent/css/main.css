@@ -149,7 +149,10 @@ p {
     outline: 0;
 }
 
-
+#rodape {
+	margin: 0 auto;
+	width: 95%;
+}
 
 
 

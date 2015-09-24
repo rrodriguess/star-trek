@@ -1,9 +1,18 @@
+var Tripulante = Tripulante = function(id, num) {
+    this.id = id;
+    this.num = num;
+};
+
+var trip1 = new Tripulante(Math.floor(Math.random() * 10 + 10), -1);
+var trip2 = new Tripulante(Math.floor(Math.random() * 10 + 40), -1);
+var trip3 = new Tripulante(Math.floor(Math.random() * 10 + 70), -1);
 
 var vCont = 0;
 var tripulantes = 3;
-function controle(num, k) {
-    k = k - 1;
-    if(num == -1){
+function controle(k) {
+
+    if(k == trip1.id || k == trip2.id || k == trip3.id){
+        k = k - 1;
         var valor = document.getElementsByTagName("input");
         valor[k].getAttribute("id");
         valor[k].setAttribute("value", 'X');
@@ -17,6 +26,7 @@ function controle(num, k) {
         }
     }else{
         var valor = document.getElementsByTagName("input");
+        k = k - 1;
         valor[k].getAttribute("id");
         valor[k].setAttribute("value", "*");
 
@@ -31,7 +41,7 @@ function verificaAdjacencias(k) {
         //verifica da direita para esquerda
         //adjacencia acima
         valor[k - 10].getAttribute("id");
-        if (valor[k - 10].getAttribute("id") == 12 || valor[k - 10].getAttribute("id") == 74 || valor[k - 10].getAttribute("id") == 38) {
+        if (valor[k - 10].getAttribute("id") == trip1.id || valor[k - 10].getAttribute("id") == trip2.id || valor[k - 10].getAttribute("id") == trip3.id) {
             if(valor[k - 10].value != 'X') {
                 valor[k - 10].setAttribute('value', '!');
 
@@ -43,7 +53,7 @@ function verificaAdjacencias(k) {
             }
         }
         valor[k - 11].getAttribute("id");
-        if (valor[k - 11].getAttribute("id") == 12 || valor[k - 11].getAttribute("id") == 74 || valor[k - 11].getAttribute("id") == 38) {
+        if (valor[k - 11].getAttribute("id") == trip1.id || valor[k - 11].getAttribute("id") == trip2.id || valor[k - 11].getAttribute("id") == trip3.id) {
             if(valor[k - 11].value != 'X') {
                 valor[k - 11].setAttribute('value', '!');
 
@@ -55,7 +65,7 @@ function verificaAdjacencias(k) {
             }
         }
         // adjacencia do lado
-       if( valor[k - 1].getAttribute("id") == 12 || valor[k + 1].getAttribute("id") == 74 || valor[k +1].getAttribute("id") == 38) {
+       if( valor[k - 1].getAttribute("id") == trip1.id || valor[k + 1].getAttribute("id") == trip2.id || valor[k +1].getAttribute("id") == trip3.id) {
            if(valor[k - 1].value() != 'X') {
                valor[k - 1].setAttribute('value', '!');
 
@@ -68,7 +78,7 @@ function verificaAdjacencias(k) {
        }
         // ajdacencia de baixo
         valor[k + 9].getAttribute("id");
-        if (valor[k + 9].getAttribute("id") == 12 || valor[k + 9].getAttribute("id") == 74 || valor[k + 9].getAttribute("id") == 38) {
+        if (valor[k + 9].getAttribute("id") == trip1.id || valor[k + 9].getAttribute("id") == trip2.id || valor[k + 9].getAttribute("id") == trip3.id) {
             if(valor[k + 9].value != 'X') {
                 valor[k + 9].setAttribute('value', '!');
 
@@ -80,7 +90,7 @@ function verificaAdjacencias(k) {
             }
         }
         valor[k + 10].getAttribute("id");
-        if (valor[k + 10].getAttribute("id") == 12 || valor[k + 10].getAttribute("id") == 74 || valor[k + 10].getAttribute("id") == 38) {
+        if (valor[k + 10].getAttribute("id") == trip1.id || valor[k + 10].getAttribute("id") == trip2.id || valor[k + 10].getAttribute("id") == trip3.id) {
             if(valor[k + 10].value != 'X') {
                 valor[k + 10].setAttribute('value', '!');
 
@@ -94,7 +104,7 @@ function verificaAdjacencias(k) {
 
     } else if (valor[k].getAttribute("id") == 91){
         valor[k - 10].getAttribute("id");
-        if (valor[k - 10].getAttribute("id") == 12 || valor[k - 10].getAttribute("id") == 74 || valor[k - 10].getAttribute("id") == 38) {
+        if (valor[k - 10].getAttribute("id") == trip1.id || valor[k - 10].getAttribute("id") == trip2.id || valor[k - 10].getAttribute("id") == trip3.id) {
             if(valor[k - 10].value != 'X') {
                 valor[k - 10].setAttribute('value', '!');
 
@@ -107,7 +117,7 @@ function verificaAdjacencias(k) {
         }
 
         valor[k + 1].getAttribute("id");
-        if (valor[k + 1].getAttribute("id") == 12 || valor[k + 1].getAttribute("id") == 74 || valor[k + 1].getAttribute("id") == 38) {
+        if (valor[k + 1].getAttribute("id") == trip1.id || valor[k + 1].getAttribute("id") == trip2.id || valor[k + 1].getAttribute("id") == trip3.id) {
             if (valor[k + 1].value != 'X') {
                 valor[k + 1].setAttribute('value', '!');
 
@@ -120,7 +130,7 @@ function verificaAdjacencias(k) {
         }
 
         valor[k - 9].getAttribute("id");
-        if (valor[k - 9].getAttribute("id") == 12 || valor[k - 9].getAttribute("id") == 74 || valor[k - 9].getAttribute("id") == 38) {
+        if (valor[k - 9].getAttribute("id") == trip1.id || valor[k - 9].getAttribute("id") == trip2.id || valor[k - 9].getAttribute("id") == trip3.id) {
             if(valor[k - 9].value != 'X') {
                 valor[k - 9].setAttribute('value', '!');
 
@@ -133,7 +143,7 @@ function verificaAdjacencias(k) {
         }
 
     } else if(valor[k].getAttribute("id") == 10) {
-        if( valor[k - 1].getAttribute("id") == 12 || valor[k + 1].getAttribute("id") == 74 || valor[k +1].getAttribute("id") == 38) {
+        if( valor[k - 1].getAttribute("id") == trip1.id || valor[k + 1].getAttribute("id") == trip2.id || valor[k +1].getAttribute("id") == trip3.id) {
             if(valor[k - 1].value() != 'X') {
                 valor[k - 1].setAttribute('value', '!');
 
@@ -146,7 +156,7 @@ function verificaAdjacencias(k) {
         }
 
         valor[k + 10].getAttribute("id");
-        if (valor[k + 10].getAttribute("id") == 12 || valor[k + 10].getAttribute("id") == 74 || valor[k + 10].getAttribute("id") == 38) {
+        if (valor[k + 10].getAttribute("id") == trip1.id || valor[k + 10].getAttribute("id") == trip2.id || valor[k + 10].getAttribute("id") == trip3.id) {
             if(valor[k + 10].value != 'X') {
                 valor[k + 10].setAttribute('value', '!');
 
@@ -159,7 +169,7 @@ function verificaAdjacencias(k) {
         }
 
         valor[k + 9].getAttribute("id");
-        if (valor[k + 9].getAttribute("id") == 12 || valor[k + 9].getAttribute("id") == 74 || valor[k + 9].getAttribute("id") == 38) {
+        if (valor[k + 9].getAttribute("id") == trip1.id || valor[k + 9].getAttribute("id") == trip2.id || valor[k + 9].getAttribute("id") == trip3.id) {
             if(valor[k + 9].value != 'X') {
                 valor[k + 9].setAttribute('value', '!');
 
@@ -177,7 +187,7 @@ function verificaAdjacencias(k) {
         //verifica da esquerda para direita
 
         valor[k + 1].getAttribute("id");
-        if (valor[k + 1].getAttribute("id") == 12 || valor[k + 1].getAttribute("id") == 74 || valor[k + 1].getAttribute("id") == 38) {
+        if (valor[k + 1].getAttribute("id") == trip1.id || valor[k + 1].getAttribute("id") == trip2.id || valor[k + 1].getAttribute("id") == trip3.id) {
             if(valor[k + 1].value != 'X') {
                 valor[k + 1].setAttribute('value', '!');
 
@@ -190,7 +200,7 @@ function verificaAdjacencias(k) {
         }
 
         valor[k + 10].getAttribute("id");
-        if (valor[k + 10].getAttribute("id") == 12 || valor[k + 10].getAttribute("id") == 74 || valor[k + 10].getAttribute("id") == 38) {
+        if (valor[k + 10].getAttribute("id") == trip1.id || valor[k + 10].getAttribute("id") == trip2.id || valor[k + 10].getAttribute("id") == trip3.id) {
             if(valor[k + 10].value != 'X') {
                 valor[k + 10].setAttribute('value', '!');
 
@@ -203,7 +213,7 @@ function verificaAdjacencias(k) {
         }
 
         valor[k + 11].getAttribute("id");
-        if (valor[k + 11].getAttribute("id") == 12 || valor[k + 11].getAttribute("id") == 74 || valor[k + 11].getAttribute("id") == 38) {
+        if (valor[k + 11].getAttribute("id") == trip1.id || valor[k + 11].getAttribute("id") == trip2.id || valor[k + 11].getAttribute("id") == trip3.id) {
             if(valor[k + 11].value != 'X') {
                 valor[k + 11].setAttribute('value', '!');
 
@@ -216,7 +226,7 @@ function verificaAdjacencias(k) {
         }
 
         valor[k - 10].getAttribute("id");
-        if (valor[k - 10].getAttribute("id") == 12 || valor[k - 10].getAttribute("id") == 74 || valor[k - 10].getAttribute("id") == 38) {
+        if (valor[k - 10].getAttribute("id") == trip1.id || valor[k - 10].getAttribute("id") == trip2.id || valor[k - 10].getAttribute("id") == trip3.id) {
             if(valor[k - 10].value != 'X') {
                 valor[k - 10].setAttribute('value', '!');
 
@@ -229,7 +239,7 @@ function verificaAdjacencias(k) {
         }
 
         valor[k - 9].getAttribute("id");
-        if (valor[k - 9].getAttribute("id") == 12 || valor[k - 9].getAttribute("id") == 74 || valor[k - 9].getAttribute("id") == 38) {
+        if (valor[k - 9].getAttribute("id") == trip1.id || valor[k - 9].getAttribute("id") == trip2.id || valor[k - 9].getAttribute("id") == trip3.id) {
             if(valor[k - 9].value != 'X') {
                 valor[k - 9].setAttribute('value', '!');
 
@@ -244,7 +254,7 @@ function verificaAdjacencias(k) {
 
     } else { // se o resto da divisão não for 0 ou 1;
         valor[k + 1].getAttribute("id");
-        if (valor[k + 1].getAttribute("id") == 12 || valor[k + 1].getAttribute("id") == 74 || valor[k + 1].getAttribute("id") == 38) {
+        if (valor[k + 1].getAttribute("id") == trip1.id || valor[k + 1].getAttribute("id") == trip2.id || valor[k + 1].getAttribute("id") == trip3.id) {
             if (valor[k + 1].value != 'X') {
                 valor[k + 1].setAttribute('value', '!');
 
@@ -257,7 +267,7 @@ function verificaAdjacencias(k) {
         }
 
         valor[k - 1].getAttribute("id");
-        if (valor[k - 1].getAttribute("id") == 12 || valor[k - 1].getAttribute("id") == 74 || valor[k - 1].getAttribute("id") == 38) {
+        if (valor[k - 1].getAttribute("id") == trip1.id || valor[k - 1].getAttribute("id") == trip2.id || valor[k - 1].getAttribute("id") == trip3.id) {
             if (valor[k - 1].value != 'X') {
                 valor[k - 1].setAttribute('value', '!');
 
@@ -270,7 +280,7 @@ function verificaAdjacencias(k) {
         }
 
         valor[k + 10].getAttribute("id");
-        if (valor[k + 10].getAttribute("id") == 12 || valor[k + 10].getAttribute("id") == 74 || valor[k + 10].getAttribute("id") == 38) {
+        if (valor[k + 10].getAttribute("id") == trip1.id || valor[k + 10].getAttribute("id") == trip2.id || valor[k + 10].getAttribute("id") == trip3.id) {
             if (valor[k + 10].value != 'X') {
                 valor[k + 10].setAttribute('value', '!');
 
@@ -282,7 +292,7 @@ function verificaAdjacencias(k) {
             }
         }
         valor[k + 11].getAttribute("id");
-        if (valor[k + 11].getAttribute("id") == 12 || valor[k + 11].getAttribute("id") == 74 || valor[k + 11].getAttribute("id") == 38) {
+        if (valor[k + 11].getAttribute("id") == trip1.id || valor[k + 11].getAttribute("id") == trip2.id || valor[k + 11].getAttribute("id") == trip3.id) {
             if (valor[k + 11].value != 'X') {
                 valor[k + 11].setAttribute('value', '!');
 
@@ -295,7 +305,7 @@ function verificaAdjacencias(k) {
         }
 
         valor[k + 9].getAttribute("id");
-        if (valor[k + 9].getAttribute("id") == 12 || valor[k + 9].getAttribute("id") == 74 || valor[k + 9].getAttribute("id") == 38) {
+        if (valor[k + 9].getAttribute("id") == trip1.id || valor[k + 9].getAttribute("id") == trip2.id || valor[k + 9].getAttribute("id") == trip3.id) {
             if (valor[k + 9].value != 'X') {
                 valor[k + 9].setAttribute('value', '!');
 
@@ -309,7 +319,7 @@ function verificaAdjacencias(k) {
 
 
         valor[k - 10].getAttribute("id");
-        if (valor[k - 10].getAttribute("id") == 12 || valor[k - 10].getAttribute("id") == 74 || valor[k - 10].getAttribute("id") == 38) {
+        if (valor[k - 10].getAttribute("id") == trip1.id || valor[k - 10].getAttribute("id") == trip2.id || valor[k - 10].getAttribute("id") == trip3.id) {
             if (valor[k - 10].value != 'X') {
                 valor[k - 10].setAttribute('value', '!');
 
@@ -322,7 +332,7 @@ function verificaAdjacencias(k) {
         }
 
         valor[k - 9].getAttribute("id");
-        if (valor[k - 9].getAttribute("id") == 12 || valor[k - 9].getAttribute("id") == 74 || valor[k - 9].getAttribute("id") == 38) {
+        if (valor[k - 9].getAttribute("id") == trip1.id || valor[k - 9].getAttribute("id") == trip2.id || valor[k - 9].getAttribute("id") == trip3.id) {
             if (valor[k - 9].value != 'X') {
                 valor[k - 9].setAttribute('value', '!');
 
@@ -335,7 +345,7 @@ function verificaAdjacencias(k) {
         }
 
         valor[k - 11].getAttribute("id");
-        if (valor[k - 11].getAttribute("id") == 12 || valor[k - 11].getAttribute("id") == 74 || valor[k - 11].getAttribute("id") == 38) {
+        if (valor[k - 11].getAttribute("id") == trip1.id || valor[k - 11].getAttribute("id") == trip2.id || valor[k - 11].getAttribute("id") == trip3.id) {
             if (valor[k - 11].value != 'X') {
                 valor[k - 11].setAttribute('value', '!');
 
@@ -354,54 +364,118 @@ function adjacenciaDosTripulantes(k) {
     var valor = document.getElementsByTagName("input");
     valor[k].getAttribute("id");
     k = k+1;
-    if(valor[k].value != 'X') {
+    /**if(valor[k].value != 'X') {
         valor[k].getAttribute('id');
         valor[k].setAttribute('value', "!");
+    }*/
+
+    if(k == trip1.id) {
+        if(k % 10 >= 1) {
+            var valor = document.getElementsByTagName("input");
+            valor[k + 10].getAttribute("id");
+            if (valor[k + 10].value != "X") {
+                valor[k + 10].setAttribute('value', '!');
+            }
+
+            valor[k + 9].getAttribute("id");
+            if (valor[k + 9].value != "X") {
+                valor[k + 9].setAttribute('value', '!');
+            }
+
+            valor[k].getAttribute("id");
+            if (valor[k].value != "X") {
+                valor[k].setAttribute('value', '!');
+            }
+
+        } else if(k % 10 == 0) {
+            var valor = document.getElementsByTagName("input");
+            valor[k - 2].getAttribute("id");
+            if (valor[k - 2].value != "X") {
+                valor[k - 2].setAttribute('value', '!');
+            }
+
+            valor[k + 9].getAttribute("id");
+            if (valor[k + 9].value != "X") {
+                valor[k + 9].setAttribute('value', '!');
+            }
+
+            valor[k + 8].getAttribute("id");
+            if (valor[k + 8].value != "X") {
+                valor[k + 8].setAttribute('value', '!');
+            }
+        }
     }
+    if(k == trip2.id) {
+        if(k % 10 >= 1) {
+            var valor = document.getElementsByTagName("input");
+            valor[k + 10].getAttribute("id");
+            if (valor[k + 10].value != "X") {
+                valor[k + 10].setAttribute('value', '!');
+            }
 
-    if(k == 12) {
-        var valor = document.getElementsByTagName("input");
-        valor[k+10].getAttribute("id");
-        if(valor[k+10] != "X") {
-            valor[k+10].setAttribute('value', '!');
-        }
+            valor[k + 9].getAttribute("id");
+            if (valor[k + 9].value != "X") {
+                valor[k + 9].setAttribute('value', '!');
+            }
 
-        valor[k+9].getAttribute("id");
-        if(valor[k+9] != "X") {
-            valor[k+9].setAttribute('value', '!');
+            valor[k].getAttribute("id");
+            if (valor[k].value != "X") {
+                valor[k].setAttribute('value', '!');
+            }
+
+        } else if(k % 10 == 0) {
+            var valor = document.getElementsByTagName("input");
+            valor[k - 2].getAttribute("id");
+            if (valor[k - 2].value != "X") {
+                valor[k - 2].setAttribute('value', '!');
+            }
+
+            valor[k + 9].getAttribute("id");
+            if (valor[k + 9].value != "X") {
+                valor[k + 9].setAttribute('value', '!');
+            }
+
+            valor[k + 8].getAttribute("id");
+            if (valor[k + 8].value != "X") {
+                valor[k + 8].setAttribute('value', '!');
+            }
+
         }
     }
-    if(k == 74) {
-        var valor = document.getElementsByTagName("input");
-        valor[k-1].getAttribute("id");
-        if(valor[k-1].value != "X") {
-            valor[k-1].setAttribute('value', '!');
-        }
+    if(k == trip3.id) {
+        if(k % 10 >= 1) {
+            var valor = document.getElementsByTagName("input");
+            valor[k + 10].getAttribute("id");
+            if (valor[k + 10].value != "X") {
+                valor[k + 10].setAttribute('value', '!');
+            }
 
-        valor[k-10].getAttribute("id");
-        if(valor[k-10].value != "X") {
-            valor[k-10].setAttribute('value', '!');
-        }
+            valor[k + 9].getAttribute("id");
+            if (valor[k + 9].value != "X") {
+                valor[k + 9].setAttribute('value', '!');
+            }
 
-        valor[k-11].getAttribute("id");
-        if(valor[k-11].value != "X") {
-            valor[k-11].setAttribute('value', '!');
-        }
+            valor[k + 1].getAttribute("id");
+            if (valor[k].value != "X") {
+                valor[k].setAttribute('value', '!');
+            }
 
-    }
-    if(k == 38) {
-        var valor = document.getElementsByTagName("input");
-        valor[k-1].getAttribute("id");
-        if(valor[k-1].value != "X") {
-            valor[k-1].setAttribute('value', '!');
-        }
+        } else if(k % 10 == 0) {
+            var valor = document.getElementsByTagName("input");
+            valor[k - 2].getAttribute("id");
+            if (valor[k - 2].value != "X") {
+                valor[k - 2].setAttribute('value', '!');
+            }
 
-        valor[k-9].getAttribute("id");
-        if(valor[k+9].value != "X") {
-            valor[k+9].setAttribute('value', '!');
-        }
-        if(valor[k+10].value != "X") {
-            valor[k+10].setAttribute('value', '!');
+            valor[k + 9].getAttribute("id");
+            if (valor[k + 9].value != "X") {
+                valor[k + 9].setAttribute('value', '!');
+            }
+
+            valor[k + 8].getAttribute("id");
+            if (valor[k + 8].value != "X") {
+                valor[k + 8].setAttribute('value', '!');
+            }
         }
 
     }

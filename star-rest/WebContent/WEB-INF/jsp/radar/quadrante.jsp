@@ -46,12 +46,12 @@
                         var k = k + 1; // variavel que indica a posição e identificação da célula
                         var num = 0;
 
-                        if(k == 12 || k == 74 || k == 38)
+                        /**if(k == 12 || k == 74 || k == 38)
                              num = -1;
                         else
-                            num = Math.floor(Math.random()*2);
+                            num = Math.floor(Math.random()*2); */
 
-                        document.write('<td><input type="button" class="btn" id="'+k+'" onclick= "conta(); controle('+num+', '+k+'); " value=" " ></td>');
+                        document.write('<td><input type="button" class="btn" id="'+k+'" onclick= "conta(); controle('+k+'); " value=" " ></td>');
                     }
                     document.write('</tr>');
                 }
@@ -63,9 +63,12 @@
         <label class="txt_btn">Sinalizador</label> <input class="semBorda" type="text" id="count" name="contador" size="3" value="0">
         <img class="emblema" src="<c:url value='/img/star.jpg' />">
         <label class="txt_btn">Perdidos</label> <input  class="semBorda" type="text" id="resg" name="resgatado" size="3" value="3">
-
     </div>
-
+    <br>
+    <br>
+	<div id="rodape">
+		<p>Compátivel com: Mozila Firefox, Google Chrome e Opera.</p> 
+	</div>
 </div>	
 </body>
 	<script src="<c:url value ="/js/main.js"/>"></script>
